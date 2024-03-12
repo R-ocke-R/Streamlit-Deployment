@@ -132,10 +132,44 @@ def work():
 def projects():
 
     st.write('\n')
-    st.subheader("Projects & Accomplishments")
+    st.subheader("Projects")
     st.write("---")
-    for project, link in PROJECTS.items():
-        st.write(f"[{project}]({link})")
+    col1, col2 = st.columns([4, 1.5])
+    with col1:
+        st.write("📀", "**Streamlit Projects:**")
+        st.write("Tech Stack : Python, CSS, Github, VSCode")
+        st.write(
+            """
+        - ► Created a portfolio website.
+        - ► Created SPX Market Monitor, an interactive app that allows users to select stocks and customize the timeframe to view stock prices. Upon request, I added a feature that enables users to compare multiple stocks on a single graph.
+        - ► View all of my streamlit projects from the sidebar.
+        """
+        )
+        st.write('\n')
+        st.write("🤖", "**Machine Learning Projects**")
+        st.write("Tech Stack: Python, Jupyter Notebooks")
+        st.write(
+            """
+        - ► Developed a Loan Eligibility Prediction Model, which was enhanced to include a feature ranking mechanism. Leveraging the mRMR technique from my feature selection research, the model provides insights into the main features influencing loan eligibility and highlights potential biases.
+        - ► Developed a Smoking Detection Classification Model to identify smoking activity in user-provided images. This project was part of learning CNNs, and their potential applications, Implemented TensorFlow partitions for efficient caching and prefetching of large dataset during training process.
+        - ► Waze user churn retention model (Working on this project)
+        """
+        )
+        st.write('\n')
+        st.write("📊", "**Tableau Data Visualisations**")
+        st.write("Tech Stack: Tableau Public ")
+        st.write(
+            """
+        - ► Analyzing Seoul Transportation Department Dataset, my task was to help optimize bicycle maintenance scheduling by analyzing rented bicycle data collected in 2018. By identifying the time of day with least rental activity, we could ensure minimal disruption to bicycle rental services during standard working hours (8 a.m. to 5 p.m). 
+        - ► This project was part of Google Advanced Data Analytics Course, you can read more about the course from the certifications linked above.
+        - ► Check out my Tableau Data Dashboard here: https://public.tableau.com/app/profile/manu.sharma.tab/vizzes
+        """
+        )
+    with col2:
+        st.lottie("https://lottie.host/f88646a4-f44b-4fff-a7ed-f5f565cb2ca0/lhJFKE6Hld.json")
+        st.lottie("https://lottie.host/f839153b-c982-47c6-8b15-c1f600fc751e/UIXYBRQRXW.json")
+
+
 
 
 def education():
@@ -143,18 +177,19 @@ def education():
     st.subheader("Education:")
     col1, col2 = st.columns([4, 1.5])
     with col1:
-        st.write("👨‍🎓", "**Bachelor of Technology | CSE**")
+        st.write("👨‍🎓", "**Bachelor of Technology | CSE | GLA University, Mathura**")
         st.write("2020 - Present")
         st.write(
             """
         - ► Specialized in AI and ML, completed respective coursework and gained practical experience through project based implementations.
         - ► Coursework: Database Management Systems, Operating Systems, Computer Networks, Data Structures and Algorithms, etc.
         - ► Actively participated in various Hackathons and coding contests.
+        - ► GRE (Feb 2024) : Scored 316 : 160 Quant, 156 Verbal.
         - ► CPI : 8.5
         """
         )
         st.write('\n')
-        st.write("🏫", "**High School | Science**")
+        st.write("🏫", "**High School | Science | St. Peter's College, Agra**")
         st.write("2020")
         st.write(
             """
@@ -165,21 +200,6 @@ def education():
         )
     with col2:
         st.lottie("https://lottie.host/bbc58d2e-9eaf-4c8c-8354-f98977e8cc19/qpzkCwQW6I.json")
-
-
-    # Displaying bachelor's degree information in the first column
-    # with col1:
-    #     st.subheader("Bachelors")
-    #     st.write(f"- **Degree:** {bachelors_info['degree']}")
-    #     st.write(f"- **Field of Study:** {bachelors_info['field_of_study']}")
-    #     st.write(f"- **University:** {bachelors_info['university']}")
-    #     st.write(f"- **Year:** {bachelors_info['year']}")
-
-    # # Displaying high school information in the second column with a bigger font size
-    # with col2:
-    #     st.write("**High School**")
-    #     st.markdown(f"## {high_school_info['school']}")
-    #     st.write(f"- **Year:** {high_school_info['year']}")
 
 
 def research():
@@ -206,6 +226,24 @@ def research():
         st.lottie("https://lottie.host/5cb583ed-32c0-4b0b-b548-d7a78775fb61/TAT6FCn5q3.json")
 
 
+def scores():
+    st.write('\n')
+    st.subheader("Certifications & Scores:")
+    st.write("---")
+    col1, col2, col3  = st.columns([2.5,1.5,1])
+    with col1:
+
+        st.write("Certifications:")
+        for project, link in Certtifications.items():
+            st.write(f"[{project}]({link})")
+    with col2:
+        st.write("Hackerrank Skills:")
+        for project, link in HackerrankSkillBadged.items():
+            st.write(f"[{project}]({link})")
+    with col3:
+        st.write("CP & Leetcode Profiles:")
+        for project, link in cp.items():
+            st.write(f"[{project}]({link})")
 
 
 hero()
@@ -215,7 +253,7 @@ st.container(border=False, height=40)
 education()
 skill_tab(info, skill_col_size)
 research()
-
+scores()
 
 
     
