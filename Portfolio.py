@@ -260,8 +260,5 @@ st.container(border=False, height=40)
 education()
 skill_tab(info, skill_col_size)
 research()
-scores()
-
-
-    
 projects()
+scores()
