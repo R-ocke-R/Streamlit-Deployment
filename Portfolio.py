@@ -8,8 +8,15 @@ from constants import *
 # Page Config
 PAGE_TITLE = "Digital CV | Manu Sharma"
 PAGE_ICON = "🤖"
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON, layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON, layout="wide")
 
+
+st.markdown("""<style>
+  body {
+    zoom: 80%;
+  }
+</style>
+""", unsafe_allow_html=True)
 
 # --- LOAD CSS, PDF & PROFILE PIC ---
 with open(css_file) as f:
