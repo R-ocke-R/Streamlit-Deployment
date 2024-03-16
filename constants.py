@@ -33,7 +33,7 @@ platform_icons = {
     "Leetcode": "https://assets.leetcode.com/static_assets/public/icons/favicon.ico"
 }
 
-info = {'skills': ['Python', 'Java', 'Machine Learning', 'Streamlit', 'Data Analysis', 'SQL', 'PopSQL', 'Jupyter Notebooks', 'Tableau', 'Excel', 'Web Scraping',]}
+info = {'skills': ['Python', 'Java', 'Machine Learning', 'Streamlit', 'Data Analysis', 'SQL', 'PopSQL', 'Jupyter Notebooks', 'Tableau', 'Excel', 'Web Scraping','HTML', 'CSS']}
 
 skill_col_size = 4
 
