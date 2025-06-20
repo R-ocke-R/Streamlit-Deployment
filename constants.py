@@ -4,7 +4,7 @@ from pathlib import Path
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "Manu Sharma_Resume_2025.pdf"
-profile_pic = current_dir / "assets" / "Profile Picture.png"
+profile_pic = current_dir / "assets" / "Profile Picture.jpeg"
 
 
 
