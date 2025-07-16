@@ -59,8 +59,4 @@ else:
         st.line_chart(tickerData)
     except KeyError:
         st.warning("'Close' data not found in the downloaded dataset.")
-    st.write("""
-    ## Closing Price
-    """)
-    st.line_chart(tickerData)
 
