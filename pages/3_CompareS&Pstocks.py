@@ -46,7 +46,17 @@ with col2:
 
 if (choices!=None):
     selected_tickers = [ticker_list[name_list.index(option)] for option in choices]
-    tickerData = yf.download(selected_tickers, start=start, end=end)['Adj Close']
+    raw_data = yf.download(selected_tickers, start=start, end=end)
+
+if raw_data.empty:
+    st.warning("No data was returned. Please check the tickers or the date range.")
+else:
+    try:
+        tickerData = raw_data.xs('Adj Close', axis=1, level=1)
+        st.subheader("Closing Price")
+        st.line_chart(tickerData)
+    except KeyError:
+        st.warning("'Adj Close' data not found in the downloaded dataset.")
     st.write("""
     ## Closing Price
     """)
