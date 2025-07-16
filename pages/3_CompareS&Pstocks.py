@@ -47,6 +47,7 @@ with col2:
 if (choices!=None):
     selected_tickers = [ticker_list[name_list.index(option)] for option in choices]
     raw_data = yf.download(selected_tickers, start=start, end=end)
+    st.write("Raw data columns:", raw_data.columns.tolist())
 
 if raw_data.empty:
     st.warning("No data was returned. Please check the tickers or the date range.")
