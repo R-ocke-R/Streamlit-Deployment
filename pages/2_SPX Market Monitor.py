@@ -40,7 +40,7 @@ if(choice!=None):
     corresponding_ticker = ticker_list[selected_index]
     tickerData = yf.Ticker(corresponding_ticker)
     #get the historical prices for this ticker
-    tickerDf = tickerData.history(period='1d', start=start, end=end)
+    tickerDf = tickerData.history(start=start, end=end)
     # Open	High	Low	Close	Volume	Dividends	Stock Splits
     st.container(border= False, height=70)
     st.write("""
