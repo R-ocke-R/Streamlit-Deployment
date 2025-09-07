@@ -8,3 +8,4 @@ yfinance
 pathlib
 pillow
 lxml
+yt-dlp
