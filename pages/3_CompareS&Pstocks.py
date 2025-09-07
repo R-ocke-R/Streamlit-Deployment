@@ -1,12 +1,43 @@
 import yfinance as yf
 import streamlit as st
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-sp_list = pd.read_html(url) 
-sp_list_500 = sp_list[0]
+# '''
+# running an error into the pandas read_html method due to wikipedia changing their page structure
+# previous code:
+# url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+# sp_list = pd.read_html(url) 
+# sp_list_500 = sp_list[0]
+# ticker_list = list(sp_list_500['Symbol'].values)
+# name_list = list(sp_list_500['Security'].values)
+# '''
+
+# updated code:
+# --- MODIFIED SECTION: Function to scrape S&P 500 data ---
+@st.cache_data
+def get_sp500_list():
+    """Scrapes the list of S&P 500 companies from Wikipedia."""
+    url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {'id': 'constituents'})
+        df = pd.read_html(str(table))[0]
+        return df
+    except requests.exceptions.RequestException as e:
+        st.error(f"Failed to retrieve data from Wikipedia: {e}")
+        return pd.DataFrame({'Symbol': [], 'Security': []})
+
+# Load the data
+sp_list_500 = get_sp500_list()
 ticker_list = list(sp_list_500['Symbol'].values)
 name_list = list(sp_list_500['Security'].values)
 
