@@ -98,3 +98,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+st.markdown(
+    """
+    <footer style="text-align: center; margin-top: 20px;">
+        <p style="font-size: 12px; color: #777;">Disclaimer: This breaks often - mostly whenever youtube changes their APIs - please feel free to report any bugs via the contact form and I'll fix them ASAP. </p>
+    </footer>
+    """,
+    unsafe_allow_html=True
+)
